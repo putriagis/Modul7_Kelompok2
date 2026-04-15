@@ -8,10 +8,11 @@ namespace Modul7_Kelompok2
     {
         static void Main(string[] args)
         {
-            ReadJSON_103022400115();
+            ReadJSON1_103022400115();
+            ReadJSON2_103022400115();
         }
 
-        static void ReadJSON_103022400115()
+        static void ReadJSON1_103022400115()
         {
             string json = File.ReadAllText("D:\\Modul7_Kelompok2\\jurnal7_1_103022400115.json");
             var data = JsonSerializer.Deserialize<FilmFavorit_103022400115>(json);
@@ -22,6 +23,20 @@ namespace Modul7_Kelompok2
             Console.WriteLine("Rating: " + data.rating);
             Console.WriteLine("Durasi: " + data.durationMinutes + " menit");
             Console.WriteLine("isWatched: " + data.isWatched);
+        }
+
+        static void ReadJSON2_103022400115()
+        {
+            string json = File.ReadAllText("D:\\Modul7_Kelompok2\\jurnal7_2_103022400115.json");
+            var data = JsonSerializer.Deserialize<Watchlist_103022400115>(json);
+            Console.WriteLine("Watchlist Name : " + data.watchlistName);
+            Console.WriteLine("Created By : " + data.createdBy);
+            Console.WriteLine("Movies : ");
+            int i = 1;
+            foreach (var film in data.film)
+            {
+                Console.WriteLine(film.id + " " + film.title + " " + "(" + film.year + "-" + film.rating); ;
+            }
         }
     }
 }
