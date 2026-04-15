@@ -7,6 +7,7 @@ class Program
     static void Main(string[] args)
     {
         ReadJSON1_103022400095();
+        Console.WriteLine();
     }
 
     static void ReadJSON1_103022400095()
