@@ -8,6 +8,7 @@ class Program
     {
         ReadJSON1_103022400095();
         Console.WriteLine();
+        ReadJSON2_103022400095();
     }
 
     static void ReadJSON1_103022400095()
@@ -23,6 +24,25 @@ class Program
         Console.WriteLine("Rating: " + data.rating);
         Console.WriteLine("Duration (minutes): " + data.durationMinutes);
         Console.WriteLine("Watched: " + data.isWatched);
+
+    }
+
+    static void ReadJSON2_103022400095()
+    {
+        Console.WriteLine("Hani - Watchlist");
+        String json = File.ReadAllText("jurnal7_2_103022400095.json");
+        Watchlist_103022400095 data = JsonSerializer.Deserialize<Watchlist_103022400095>(json);
+        Console.WriteLine(data);
+
+        foreach (var movie in data.movies)
+        {
+            Console.WriteLine("ID: " + movie.id);
+            Console.WriteLine("Title: " + movie.title);
+            Console.WriteLine("Director: " + movie.genre);
+            Console.WriteLine("Year: " + movie.year);
+            Console.WriteLine("Rating: " + movie.rating);
+            Console.WriteLine();
+        }
 
     }
 }
